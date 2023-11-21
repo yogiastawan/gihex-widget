@@ -2,6 +2,13 @@
 name = "gihex-widget"
 version = "0.1.0"
 edition = "2021"
+authors = ["yogiastawan"]
+repository = "https://github.com/yogiastawan/gihex-widget"
+description = "GTK4 custom widget"
+keywords = ["gtk4", "custom-widget"]
+categories = ["GUI", "visualitation"]
+license = "MIT"
+readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
