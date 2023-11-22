@@ -24,8 +24,8 @@ mod imp {
     };
 
     #[derive(Properties, Default)]
-    #[properties(wrapper_type=super::GihexGauge)]
-    pub struct GihexGauge {
+    #[properties(wrapper_type=super::GihexGaugeBar)]
+    pub struct GihexGaugeBar {
         #[property(get, set,type=f32, default = 30f32)]
         value: Cell<f32>,
         #[property(get, set,type=f32, name="min-value", default = 0f32)]
@@ -39,9 +39,9 @@ mod imp {
     }
 
     #[glib::object_subclass]
-    impl ObjectSubclass for GihexGauge {
+    impl ObjectSubclass for GihexGaugeBar {
         const NAME: &'static str = "GihexGauge";
-        type Type = super::GihexGauge;
+        type Type = super::GihexGaugeBar;
         type ParentType = Widget;
         const ABSTRACT: bool = false;
 
@@ -50,7 +50,7 @@ mod imp {
         }
 
         fn new() -> Self {
-            GihexGauge {
+            GihexGaugeBar {
                 value: Cell::new(30f32),
                 min_value: Cell::new(0f32),
                 max_value: Cell::new(100f32),
@@ -61,9 +61,9 @@ mod imp {
     }
 
     #[glib::derived_properties]
-    impl ObjectImpl for GihexGauge {}
+    impl ObjectImpl for GihexGaugeBar {}
 
-    impl WidgetImpl for GihexGauge {
+    impl WidgetImpl for GihexGaugeBar {
         fn snapshot(&self, snapshot: &gtk4::Snapshot) {
             let widget = self.obj();
 
@@ -182,12 +182,12 @@ mod imp {
 }
 
 glib::wrapper! {
-    pub struct GihexGauge(ObjectSubclass<imp::GihexGauge>)
+    pub struct GihexGaugeBar(ObjectSubclass<imp::GihexGaugeBar>)
     @extends gtk4::Widget,
     @implements gtk4::Accessible;
 }
 
-impl GihexGauge {
+impl GihexGaugeBar {
     pub fn new() -> Self {
         Object::builder().build()
     }

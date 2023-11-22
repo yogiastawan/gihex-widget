@@ -1,3 +1,3 @@
-pub mod gihex_gauge;
+pub mod gihex_gauge_bar;
 
 

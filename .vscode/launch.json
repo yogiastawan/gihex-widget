@@ -26,15 +26,15 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "example: gihex_gauge",
+            "name": "example: gihex_gauge_bar",
             "cargo": {
                 "args": [
                     "build",
-                    "--example=gihex_gauge",
+                    "--example=gihex_gauge_bar",
                     "--package=gihex-widget"
                 ],
                 "filter": {
-                    "name": "gihex_gauge",
+                    "name": "gihex_gauge_bar",
                     "kind": "example"
                 }
             },

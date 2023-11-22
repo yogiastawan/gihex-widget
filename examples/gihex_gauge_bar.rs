@@ -1,4 +1,4 @@
-use gihex_widget::gihex_gauge::GihexGauge;
+use gihex_widget::gihex_gauge_bar::GihexGaugeBar;
 use gtk4::{
     glib,
     prelude::{ApplicationExt, ApplicationExtManual, BoxExt, GtkWindowExt},
@@ -17,11 +17,11 @@ fn main() -> glib::ExitCode {
 
 fn build_ui(app: &Application) {
     let container = Box::new(gtk4::Orientation::Horizontal, 20);
-    let gauge = GihexGauge::new();
-    let gauge_1 = GihexGauge::new();
+    let gauge = GihexGaugeBar::new();
+    let gauge_1 = GihexGaugeBar::new();
     gauge_1.set_unit_value("\u{2103}");
     gauge_1.set_value(60.0);
-    let gauge_2 = GihexGauge::new();
+    let gauge_2 = GihexGaugeBar::new();
     gauge_2.set_unit_value("\u{2109}");
     container.append(&gauge);
     container.append(&gauge_1);

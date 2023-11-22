@@ -17,4 +17,4 @@ gtk4 = { version = "0.7.3" }
 
 
 [[example]]
-name = "gihex_gauge"
+name = "gihex_gauge_bar"
