@@ -187,7 +187,7 @@ mod imp {
 
     #[glib::object_subclass]
     impl ObjectSubclass for GihexGaugeBar {
-        const NAME: &'static str = "GihexGauge";
+        const NAME: &'static str = "GihexGaugeBar";
         type Type = super::GihexGaugeBar;
         type ParentType = Widget;
         const ABSTRACT: bool = false;
