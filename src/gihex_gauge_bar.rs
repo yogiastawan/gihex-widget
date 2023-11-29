@@ -374,7 +374,7 @@ mod imp {
 glib::wrapper! {
     pub struct GihexGaugeBar(ObjectSubclass<imp::GihexGaugeBar>)
     @extends gtk4::Widget,
-    @implements gtk4::Accessible;
+    @implements gtk4::Accessible,gtk4::Actionable, gtk4::Buildable;
 }
 
 impl Default for GihexGaugeBar {
