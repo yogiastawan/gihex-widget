@@ -40,6 +40,24 @@
             },
             "args": [],
             "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "example: gihex_circle_bar",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--example=gihex_circle_bar",
+                    "--package=gihex-widget"
+                ],
+                "filter": {
+                    "name": "gihex_circle_bar",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
         }
     ]
 }
