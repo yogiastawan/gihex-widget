@@ -35,8 +35,8 @@ fn build_ui(app: &Application) {
 
     let win = ApplicationWindow::builder()
         .application(app)
-        .title("Example Gihex Gauge")
-        // .width_request(480)
+        .title("Example Gihex Circle")
+        // .width_request(480) 
         // .height_request(320)
         .child(&container)
         .build();
