@@ -246,7 +246,7 @@ mod imp {
             //draw background
             let cr = snapshot.append_cairo(&graphene::Rect::new(0.0, 0.0, w as f32, h as f32));
 
-            cr.add_rectangle(&Rectangle::new(0, 0, size as i32, size as i32));
+            cr.add_rectangle(&Rectangle::new(0, 0, w, h));
             cr.set_source_rgba(
                 self.backgorund_color.borrow().get_red().into(),
                 self.backgorund_color.borrow().get_green().into(),
@@ -374,7 +374,7 @@ mod imp {
 glib::wrapper! {
     pub struct GihexGaugeBar(ObjectSubclass<imp::GihexGaugeBar>)
     @extends gtk4::Widget,
-    @implements gtk4::Accessible,gtk4::Actionable, gtk4::Buildable;
+    @implements gtk4::Accessible, gtk4::Actionable, gtk4::Buildable;
 }
 
 impl Default for GihexGaugeBar {
