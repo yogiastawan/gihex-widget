@@ -17,7 +17,7 @@
 //! | Value | value | set_value| value | f32 | yes | yes | 3 |
 //! | Min value | min-value | set_min_value | min_value| f32 | yes | yes | 0.0 |
 //! | Max value | max-value | set_max_value | max_value| f32 | yes | yes | 100.0 |
-//! | Unit font size | unit-font-size | set_unit_font_size | unit_font_size | f32 | yes | yes | 12.0 |
+//! | Font size | font-size | set_font_size | font_size | f32 | yes | yes | 12.0 |
 //! | Unit | unit | set_unit | unit | String | yes | yes | % |
 //! | Background color | background-color | set_background_color | background_color | [GihexColor] | yes | yes | (0, 51, 51, 255) |
 //! | Track color | track-color | set_track_color | track_color | [GihexColor] | yes | yes | (0, 127, 127, 255) |
@@ -115,8 +115,8 @@ mod imp {
         min_value: Cell<f32>,
         #[property(get, set=Self::set_max_value,type=f32, name="max-value", default = 100f32)]
         max_value: Cell<f32>,
-        #[property(get, set=Self::set_font_size,type=f32, name="unit-font-size", default = 12f32)]
-        unit_font_size: Cell<f32>,
+        #[property(get, set=Self::set_font_size,type=f32, name="font-size", default = 12f32)]
+        font_size: Cell<f32>,
         #[property(get, set=Self::set_unit,type=String, name="unit", default = "%")]
         unit: RefCell<String>,
         #[property(get, set=Self::set_background_color,type=GihexColor, name="background-color")]
@@ -150,7 +150,7 @@ mod imp {
             self.obj().queue_draw();
         }
         fn set_font_size(&self, value: f32) {
-            self.unit_font_size.set(value);
+            self.font_size.set(value);
             self.obj().queue_draw();
         }
 
@@ -201,7 +201,7 @@ mod imp {
                 value: Cell::new(30f32),
                 min_value: Cell::new(0f32),
                 max_value: Cell::new(100f32),
-                unit_font_size: Cell::new(12.0),
+                font_size: Cell::new(12.0),
                 unit: RefCell::new("%".to_owned()),
                 backgorund_color: RefCell::new(GihexColor::new(0, 51, 51, 255)),
                 track_color: RefCell::new(GihexColor::new(0, 127, 127, 255)),
@@ -342,7 +342,7 @@ mod imp {
             //draw text value
             let cr =
                 snapshot.append_cairo(&graphene::Rect::new(0.0, 0.0, size as f32, size as f32));
-            cr.set_font_size(self.unit_font_size.get() as f64 * size / 75.0);
+            cr.set_font_size(self.font_size.get() as f64 * size / 75.0);
             let text_extends = cr.text_extents(value_text.as_str()).unwrap();
             cr.move_to(
                 (size / 2.0) - ((text_extends.width() / 2.0) + text_extends.x_bearing()),
