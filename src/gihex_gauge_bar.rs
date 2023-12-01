@@ -88,7 +88,7 @@ mod imp {
     };
 
     use gtk4::{
-        gdk::{Rectangle, RGBA},
+        gdk::Rectangle,
         glib::{
             self,
             subclass::{
