@@ -410,7 +410,7 @@ impl GihexColor {
         ))
     }
 
-    /// Get [gtk4::gdk::RGBA] color.
+    /// Get `gtk4::gdk::RGBA` color.
     pub fn get_rgba(&self) -> RGBA {
         RGBA::new(self.0.red(), self.0.green(), self.0.blue(), self.0.alpha())
     }
