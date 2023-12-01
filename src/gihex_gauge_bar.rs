@@ -14,10 +14,10 @@
 //!
 //! | Name | XML Name | Setter| Getter | Type | Read | Write | Default Value|
 //! |------|----------|-------|--------|------|:----:|:-----:|--------------|
-//! | Value | value | set_value| value | f32 | yes | yes | 3 |
+//! | Value | value | set_value| value | f32 | yes | yes | 30.0 |
 //! | Min value | min-value | set_min_value | min_value| f32 | yes | yes | 0.0 |
 //! | Max value | max-value | set_max_value | max_value| f32 | yes | yes | 100.0 |
-//! | Font size | font-size | set_font_size | font_size | f32 | yes | yes | 12.0 |
+//! | Font size | font-size | set_font_size | font_size | f32 | yes | yes | 48.0 |
 //! | Unit | unit | set_unit | unit | String | yes | yes | % |
 //! | Background color | background-color | set_background_color | background_color | [GihexColor] | yes | yes | (0, 51, 51, 255) |
 //! | Track color | track-color | set_track_color | track_color | [GihexColor] | yes | yes | (0, 127, 127, 255) |
@@ -201,7 +201,7 @@ mod imp {
                 value: Cell::new(30f32),
                 min_value: Cell::new(0f32),
                 max_value: Cell::new(100f32),
-                font_size: Cell::new(12.0),
+                font_size: Cell::new(48.0),
                 unit: RefCell::new("%".to_owned()),
                 backgorund_color: RefCell::new(GihexColor::new(0, 51, 51, 255)),
                 track_color: RefCell::new(GihexColor::new(0, 127, 127, 255)),
@@ -240,7 +240,7 @@ mod imp {
                 value
             };
 
-            let value_text = format!("{:.2}{}", value, self.unit.borrow());
+            let value_text = format!("{:.1}{}", value, self.unit.borrow());
 
             // let stroke_color=
             //draw background
@@ -342,7 +342,7 @@ mod imp {
             //draw text value
             let cr =
                 snapshot.append_cairo(&graphene::Rect::new(0.0, 0.0, size as f32, size as f32));
-            cr.set_font_size(self.font_size.get() as f64 * size / 75.0);
+            cr.set_font_size(self.font_size.get() as f64 * size / 300.0);
             let text_extends = cr.text_extents(value_text.as_str()).unwrap();
             cr.move_to(
                 (size / 2.0) - ((text_extends.width() / 2.0) + text_extends.x_bearing()),
