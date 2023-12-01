@@ -164,23 +164,23 @@ mod imp {
             self.obj().queue_draw();
         }
 
-        fn set_track_color(&self, color: RGBA) {
-            *self.track_color.borrow_mut() = GihexColor(color);
+        fn set_track_color(&self, color: GihexColor) {
+            *self.track_color.borrow_mut() = color;
             self.obj().queue_draw();
         }
 
-        fn set_bar_color(&self, color: RGBA) {
-            *self.bar_color.borrow_mut() = GihexColor(color);
+        fn set_bar_color(&self, color: GihexColor) {
+            *self.bar_color.borrow_mut() = color;
             self.obj().queue_draw();
         }
 
-        fn set_stroke_color(&self, color: RGBA) {
-            *self.stroke_color.borrow_mut() = GihexColor(color);
+        fn set_stroke_color(&self, color: GihexColor) {
+            *self.stroke_color.borrow_mut() = color;
             self.obj().queue_draw();
         }
 
-        fn set_text_color(&self, color: RGBA) {
-            *self.text_color.borrow_mut() = GihexColor(color);
+        fn set_text_color(&self, color: GihexColor) {
+            *self.text_color.borrow_mut() = color;
             self.obj().queue_draw();
         }
     }
